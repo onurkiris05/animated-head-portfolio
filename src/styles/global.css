@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  /* COLORS */
-  --clr-1: #073b4c;
-  --clr-2: #118ab2;
-  --clr-3: #06d6a0;
-  --clr-4: #ffd166;
-  --clr-5: #ef476f;
+  /* LIGHT MODE */
+  --bg-color: #fff;
+  --text-color: #073b4c;
+  --primary-color: #118ab2;
+  --secondary-color: #06d6a0;
+
+  /* DARK MODE */
+  --bg-color-dark: #121212;
+  --text-color-dark: #ffffff;
+  --primary-color-dark: #06d6a0;
+  --secondary-color-dark: #118ab2;
 
   /* FONTS */
   --ff-primary: "Urbanist", sans-serif;
@@ -38,6 +43,14 @@ a {
 }
 
 body {
-  background: #fff;
-  color: var(--clr-1);
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode {
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --primary-color: var(--primary-color-dark);
+  --secondary-color: var(--secondary-color-dark);
 }
