@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* COLORS */
+  --clr-1: #073b4c;
+  --clr-2: #118ab2;
+  --clr-3: #06d6a0;
+  --clr-4: #ffd166;
+  --clr-5: #ef476f;
+
+  /* FONTS */
+  --ff-primary: "Urbanist", sans-serif;
+  --ff-secondary: "Roboto", sans-serif;
+
+  /* Z-INDEX */
+  --z-above: 10;
+  --z-below: -10;
+  --z-base: 1;
+  --z-content: 50;
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-modal: 500;
+  --z-tooltip: 1000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--ff-primary);
+  font-weight: 400;
+}
+
+a {
+  all: unset;
+  display: flex;
+}
+
+body {
+  background: #fff;
+  color: var(--clr-1);
+}
