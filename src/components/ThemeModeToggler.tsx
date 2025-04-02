@@ -9,6 +9,7 @@ const Button = styled.button`
   border-radius: 50rem;
   width: 5rem;
   height: 2.75rem;
+  cursor: pointer;
 `;
 
 const Pin = styled.div<{ $themeMode: string }>`
@@ -49,7 +50,7 @@ const nightAnim = keyframes`
 `;
 
 const Night = styled(NightsStay)`
-  animation: ${nightAnim} 2s linear infinite;
+  animation: ${nightAnim} 4s linear infinite;
 `;
 
 function ThemeModeToggler() {

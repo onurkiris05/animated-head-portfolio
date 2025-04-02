@@ -15,3 +15,11 @@ export const md = (props: CSSObject | TemplateStringsArray) => {
     }
   `;
 };
+
+export const lg = (props: CSSObject | TemplateStringsArray) => {
+  return css`
+    @media (max-width: 992px) {
+      ${props}
+    }
+  `;
+};

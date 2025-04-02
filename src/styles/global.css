@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
+  /* COLORS */
+  --clr-1: #073b4c;
+  --clr-2: #118ab2;
+  --clr-3: #06d6a0;
+  --clr-4: #ffd166;
+  --clr-5: #ef476f;
+
   /* LIGHT MODE */
   --bg-color: #fff;
   --text-color: #073b4c;
@@ -35,6 +42,7 @@
   scroll-behavior: smooth;
   font-family: var(--ff-primary);
   font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
