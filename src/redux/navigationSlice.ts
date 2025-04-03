@@ -1,16 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+type NavPosition = "topRight" | "topLeft" | "bottomRight" | "bottomLeft" | "";
 
 const navigationSlice = createSlice({
   name: "navigation",
   initialState: {
-    toggled: false,
+    toggled: "",
   },
   reducers: {
-    toggleNavState: (state) => {
-      state.toggled = !state.toggled;
+    setNavState: (state, action: PayloadAction<NavPosition>) => {
+      state.toggled = action.payload;
     },
   },
 });
 
-export const { toggleNavState } = navigationSlice.actions;
+export const { setNavState } = navigationSlice.actions;
 export default navigationSlice.reducer;

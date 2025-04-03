@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   North,
   Link,
@@ -12,8 +12,8 @@ import {
   Email,
 } from "@mui/icons-material";
 import { lg, md } from "../../utils/responsive";
-import { toggleNavState } from "../../redux/navigationSlice";
-import { useDispatch } from "react-redux";
+import { setNavState } from "../../redux/navigationSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -122,12 +122,17 @@ const StyledLink = styled.a`
 
 function TopLeft() {
   const [toggled, setToggled] = useState(false);
+  const navState = useSelector((state: any) => state.navigation.toggled);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
-    setToggled(!toggled);
-    dispatch(toggleNavState());
+    dispatch(setNavState(toggled ? "" : "topLeft"));
+    setToggled(toggled ? false : true);
   };
+
+  useEffect(() => {
+    navState !== "topLeft" && setToggled(false);
+  }, [navState]);
 
   return (
     <Container>
@@ -205,7 +210,7 @@ function TopLeft() {
         <Card>
           <Header>
             <ConnectWithoutContact />
-            <Name>Get In Touch</Name>
+            <Name>Contact</Name>
           </Header>
           <LinkWrapper>
             <Info>LinkedIn</Info>
