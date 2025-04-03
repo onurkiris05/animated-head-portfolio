@@ -10,12 +10,14 @@
 
   /* LIGHT MODE */
   --bg-color: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
   --text-color: #073b4c;
   --primary-color: #118ab2;
   --secondary-color: #06d6a0;
 
   /* DARK MODE */
   --bg-color-dark: #121212;
+  --shadow-color-dark: rgba(255, 255, 255, 0.7);
   --text-color-dark: #ffffff;
   --primary-color-dark: #06d6a0;
   --secondary-color-dark: #118ab2;
@@ -54,10 +56,12 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 .dark-mode {
   --bg-color: var(--bg-color-dark);
+  --shadow-color: var(--shadow-color-dark);
   --text-color: var(--text-color-dark);
   --primary-color: var(--primary-color-dark);
   --secondary-color: var(--secondary-color-dark);

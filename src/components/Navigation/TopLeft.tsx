@@ -1,7 +1,23 @@
 import styled from "styled-components";
 import { useState } from "react";
+import {
+  North,
+  Link,
+  AutoStories,
+  RecordVoiceOver,
+  SportsGymnastics,
+  Hub,
+  ConnectWithoutContact,
+  LinkedIn,
+  Email,
+} from "@mui/icons-material";
+import { lg, md } from "../../utils/responsive";
+import { toggleNavState } from "../../redux/navigationSlice";
+import { useDispatch } from "react-redux";
 
-const Container = styled.div<{ toggled: boolean }>`
+const Container = styled.div``;
+
+const Button = styled.div<{ $toggled: boolean }>`
   position: absolute;
   top: -10rem;
   left: -10rem;
@@ -12,30 +28,203 @@ const Container = styled.div<{ toggled: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  z-index: var(--z-header);
   cursor: pointer;
   transition: 0.3s ease-in-out;
 
-  background: ${({ toggled }) => (toggled ? "var(--clr-5)" : "var(--bg-color)")};
-  transform: ${({ toggled }) => (toggled ? "scale(1.1) rotate(-45deg)" : "rotate(-45deg)")};
-  box-shadow: ${({ toggled }) =>
-    toggled ? "inset 0 0 2rem 1rem rgba(0, 0, 0, 0.3)" : "0 0 2rem 1rem rgba(0, 0, 0, 0.3)"};
+  background: ${({ $toggled }) => ($toggled ? "var(--clr-5)" : "var(--bg-color)")};
+  transform: ${({ $toggled }) => ($toggled ? "scale(1.1) rotate(-45deg)" : "rotate(-45deg)")};
+  box-shadow: ${({ $toggled }) =>
+    $toggled ? "inset 0 0 2rem 1rem var(--shadow-color)" : "0 0 2rem 1rem var(--shadow-color)"};
 
   &:hover {
-    transform: scale(1.1) rotate(-45deg);
-    background: var(--clr-5);
+    box-shadow: ${({ $toggled }) =>
+      $toggled ? "inset 0 0 3rem 2rem var(--shadow-color)" : "0 0 3rem 2rem var(--shadow-color)"};
   }
+
+  ${md({
+    top: "-6rem",
+    left: "-6rem",
+    width: "12rem",
+    height: "12rem",
+  })}
 `;
 
 const Title = styled.h1`
   margin: 1rem 0;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+
+  ${md({
+    fontSize: "1.75rem",
+  })}
+`;
+
+const Content = styled.div<{ $toggled: boolean }>`
+  position: absolute;
+  top: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
+  left: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
+  transition: 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  ${lg(
+    ({ $toggled }) =>
+      $toggled && {
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }
+  )}
+`;
+
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 25rem;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  backdrop-filter: blur(20px);
+`;
+
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+`;
+
+const Name = styled.h5`
+  font-weight: 600;
+`;
+
+const Info = styled.p``;
+
+const LinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const StyledLink = styled.a`
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 function TopLeft() {
   const [toggled, setToggled] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleToggle = () => {
+    setToggled(!toggled);
+    dispatch(toggleNavState());
+  };
 
   return (
-    <Container toggled={toggled} onClick={() => setToggled(!toggled)}>
-      <Title>TopLeft</Title>
+    <Container>
+      <Button $toggled={toggled} onClick={handleToggle}>
+        {toggled && <North />}
+        <Title>about</Title>
+      </Button>
+      <Content $toggled={toggled}>
+        <Card>
+          <Header>
+            <AutoStories />
+            <Name>Education</Name>
+          </Header>
+          <Info>AS in Computer Programming - Anadolu University</Info>
+          <Info>BS in Business Administration - Anadolu University</Info>
+        </Card>
+        <Card>
+          <Header>
+            <RecordVoiceOver />
+            <Name>Languages</Name>
+          </Header>
+          <Info>English - B2</Info>
+          <Info>German - B1 (TELC)</Info>
+          <Info>Turkish - Native </Info>
+        </Card>
+        <Card>
+          <Header>
+            <SportsGymnastics />
+            <Name>Hobbies</Name>
+          </Header>
+          <Info>
+            Camping, Hiking, Cycling, Swimming, Fantasy & Science Fiction (LOTR, Star Wars), Anime
+            (Berserker), Games (XCom, Heroes)
+          </Info>
+        </Card>
+        <Card>
+          <Header>
+            <Hub />
+            <Name>Links</Name>
+          </Header>
+          <LinkWrapper>
+            <Info>Github</Info>
+            <Link />
+            <StyledLink
+              href="https://github.com/onurkiris05"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/onurkiris05
+            </StyledLink>
+          </LinkWrapper>
+          <LinkWrapper>
+            <Info>Articles</Info>
+            <Link />
+            <StyledLink
+              href="https://medium.com/@onurkiris05"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              medium.com/@onurkiris05
+            </StyledLink>
+          </LinkWrapper>
+          <LinkWrapper>
+            <Info>Game Portfolio</Info>
+            <Link />
+            <StyledLink
+              href="https://www.behance.net/onurkiris"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              behance.net/onurkiris
+            </StyledLink>
+          </LinkWrapper>
+        </Card>
+        <Card>
+          <Header>
+            <ConnectWithoutContact />
+            <Name>Get In Touch</Name>
+          </Header>
+          <LinkWrapper>
+            <Info>LinkedIn</Info>
+            <LinkedIn />
+            <StyledLink
+              href="https://www.linkedin.com/in/onur-kiris/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/onur-kiris
+            </StyledLink>
+          </LinkWrapper>
+          <LinkWrapper>
+            <Info>Email</Info>
+            <Email />
+            <StyledLink href="mailto:onurkiris05@gmail.com">onurkiris05@gmail.com</StyledLink>
+          </LinkWrapper>
+        </Card>
+      </Content>
     </Container>
   );
 }

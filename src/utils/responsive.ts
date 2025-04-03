@@ -1,25 +1,27 @@
 import { css, CSSObject } from "styled-components";
 
-export const sm = (props: CSSObject | TemplateStringsArray) => {
+type MediaQueryProps = CSSObject | TemplateStringsArray | ((props: any) => CSSObject);
+
+export const sm = (props: MediaQueryProps) => {
   return css`
     @media (max-width: 576px) {
-      ${props}
+      ${typeof props === "function" ? css(props) : props}
     }
   `;
 };
 
-export const md = (props: CSSObject | TemplateStringsArray) => {
+export const md = (props: MediaQueryProps) => {
   return css`
     @media (max-width: 768px) {
-      ${props}
+      ${typeof props === "function" ? css(props) : props}
     }
   `;
 };
 
-export const lg = (props: CSSObject | TemplateStringsArray) => {
+export const lg = (props: MediaQueryProps) => {
   return css`
     @media (max-width: 992px) {
-      ${props}
+      ${typeof props === "function" ? css(props) : props}
     }
   `;
 };
