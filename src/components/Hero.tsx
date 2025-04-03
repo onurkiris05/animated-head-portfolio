@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import FaceAnimation from "./FaceAnimation";
-import { lg } from "../utils/responsive";
-import { useSelector } from "react-redux";
 
 const Container = styled.div`
   display: flex;
@@ -10,19 +8,12 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Header = styled.div<{ $toggled: boolean }>`
+const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: 0.3s ease-in-out;
-
-  ${lg(
-    ({ $toggled }) =>
-      $toggled && {
-        marginBottom: "7rem",
-      }
-  )}
 `;
 
 const UpperTitle = styled.h5`
@@ -40,11 +31,9 @@ const LowerTitle = styled.p`
 `;
 
 function Hero() {
-  const navToggled = useSelector((state: any) => state.navigation.toggled);
-
   return (
     <Container>
-      <Header $toggled={navToggled}>
+      <Header>
         <UpperTitle>Hello I'm</UpperTitle>
         <Name>Onur Kiris</Name>
         <LowerTitle>Fullstack Developer</LowerTitle>

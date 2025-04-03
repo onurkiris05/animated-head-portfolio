@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Container = styled.div``;
 
 const Button = styled.div<{ $toggled: boolean }>`
-  position: absolute;
+  position: fixed;
   top: -10rem;
   left: -10rem;
   width: 20rem;
@@ -53,7 +53,7 @@ const Button = styled.div<{ $toggled: boolean }>`
 const Title = styled.h1`
   margin: 1rem 0;
   letter-spacing: 2px;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   ${md({
     fontSize: "1.75rem",

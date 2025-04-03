@@ -11,7 +11,7 @@ import { frontendSkills, backendSkills, softwareDevSkills } from "../../data";
 const Container = styled.div``;
 
 const Button = styled.div<{ $toggled: boolean }>`
-  position: absolute;
+  position: fixed;
   top: -10rem;
   right: -10rem;
   width: 20rem;
@@ -46,7 +46,7 @@ const Button = styled.div<{ $toggled: boolean }>`
 const Title = styled.h1`
   margin: 1rem 0;
   letter-spacing: 2px;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   ${md({
     fontSize: "1.75rem",
@@ -55,8 +55,8 @@ const Title = styled.h1`
 
 const Content = styled.div<{ $toggled: boolean }>`
   position: absolute;
-  top: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
-  right: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
+  top: ${({ $toggled }) => ($toggled ? "6rem" : "-50rem")};
+  right: ${({ $toggled }) => ($toggled ? "12rem" : "-50rem")};
   transition: 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -65,10 +65,9 @@ const Content = styled.div<{ $toggled: boolean }>`
   ${lg(
     ({ $toggled }) =>
       $toggled && {
-        top: "50%",
-        left: "50%",
-        right: "unset",
-        transform: "translate(-50%, -50%)",
+        top: $toggled ? "50%" : "-50rem",
+        right: $toggled ? "50%" : "-50rem",
+        transform: $toggled ? "translate(50%, -50%)" : "none",
       }
   )}
 `;
@@ -91,7 +90,7 @@ const Header = styled.div`
   justify-content: center;
   font-size: 1.5rem;
   gap: 0.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Name = styled.h5`
@@ -139,8 +138,8 @@ function TopRight() {
             <Panorama />
             <Name>Frontend Development</Name>
           </Header>
-          {frontendSkills.map((skill) => (
-            <InfoWrapper>
+          {frontendSkills.map((skill, i) => (
+            <InfoWrapper key={i}>
               <SkillWrapper>
                 <WorkspacePremium />
                 <Info>{skill.name}</Info>

@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const ModeTogglerContainer = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
