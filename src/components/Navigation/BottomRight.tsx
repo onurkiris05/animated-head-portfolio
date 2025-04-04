@@ -22,15 +22,15 @@ const Button = styled.div<{ $toggled: boolean }>`
   z-index: var(--z-header);
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.5), 10px 10px 100px rgba(0, 0, 0, 0.4),
-    inset 0px 0px 30px rgba(0, 0, 0, 0.7), inset -5px -5px 15px rgba(255, 255, 255, 0.5);
+  background: center repeat var(--p-br) var(--clr-4);
+  box-shadow: 10px 0 100px rgba(0, 0, 0, 0.5), 10px 0 100px rgba(0, 0, 0, 0.4),
+    inset -5px -5px 30px rgba(0, 0, 0, 0.5), inset 5px 5px 15px rgba(255, 255, 255, 0.5);
 
-  background: ${({ $toggled }) => ($toggled ? "var(--clr-4)" : "var(--bg-color)")};
   transform: ${({ $toggled }) => ($toggled ? "scale(1.1) rotate(-45deg)" : "rotate(-45deg)")};
 
   &:hover {
-    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.7), 10px 10px 100px rgba(0, 0, 0, 0.5),
-      inset 0px 0px 30px rgba(0, 0, 0, 0.7), inset -5px -5px 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 10px 0 100px rgba(0, 0, 0, 0.7), 10px 0 100px rgba(0, 0, 0, 0.5),
+      inset -5px -5px 30px rgba(0, 0, 0, 0.7), inset 5px 5px 15px rgba(255, 255, 255, 0.5);
     transform: scale(1.1) rotate(-45deg);
   }
 
@@ -45,6 +45,7 @@ const Button = styled.div<{ $toggled: boolean }>`
 const Title = styled.h1`
   margin-top: 2rem;
   font-size: 2rem;
+  color: #fff;
 
   ${md({
     fontSize: "1.75rem",
@@ -85,7 +86,7 @@ const Card = styled.div<{ $toggled: boolean }>`
   margin-bottom: 1rem;
   border: 1px solid gray;
   border-radius: 1rem;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(50px);
   transition: 0.3s ease-in-out;
 
   ${md(
@@ -136,7 +137,7 @@ function BottomRight() {
     <Container>
       <Button $toggled={toggled} onClick={handleToggle}>
         <Title>experience</Title>
-        {toggled && <South />}
+        {toggled && <South style={{ color: "#fff" }} />}
       </Button>
       <Content $toggled={toggled}>
         {experiences.map((experience) => (
