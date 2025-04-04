@@ -59,6 +59,10 @@ body {
   overflow: hidden;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .dark-mode {
   --bg-color: var(--bg-color-dark);
   --shadow-color: var(--shadow-color-dark);

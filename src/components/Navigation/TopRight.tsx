@@ -24,15 +24,16 @@ const Button = styled.div<{ $toggled: boolean }>`
   z-index: var(--z-header);
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.5), 10px 10px 100px rgba(0, 0, 0, 0.4),
+    inset 0px 0px 30px rgba(0, 0, 0, 0.7), inset -5px -5px 15px rgba(255, 255, 255, 0.5);
 
   background: ${({ $toggled }) => ($toggled ? "var(--clr-3)" : "var(--bg-color)")};
   transform: ${({ $toggled }) => ($toggled ? "scale(1.1) rotate(45deg)" : "rotate(45deg)")};
-  box-shadow: ${({ $toggled }) =>
-    $toggled ? "inset 0 0 2rem 1rem var(--shadow-color)" : "0 0 2rem 1rem var(--shadow-color)"};
 
   &:hover {
-    box-shadow: ${({ $toggled }) =>
-      $toggled ? "inset 0 0 3rem 2rem var(--shadow-color)" : "0 0 3rem 2rem var(--shadow-color)"};
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.7), 10px 10px 100px rgba(0, 0, 0, 0.5),
+      inset 0px 0px 30px rgba(0, 0, 0, 0.7), inset -5px -5px 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1) rotate(45deg);
   }
 
   ${md({
@@ -44,12 +45,13 @@ const Button = styled.div<{ $toggled: boolean }>`
 `;
 
 const Title = styled.h1`
-  margin: 1rem 0;
+  margin-bottom: 2rem;
   letter-spacing: 2px;
   font-size: 2rem;
 
   ${md({
     fontSize: "1.75rem",
+    marginBottom: "1rem",
   })}
 `;
 
