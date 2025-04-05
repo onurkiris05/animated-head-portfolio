@@ -15,7 +15,9 @@ import { lg, md } from "../../utils/responsive";
 import { setNavState } from "../../redux/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const Container = styled.div``;
+const Container = styled.div`
+  pointer-events: auto;
+`;
 
 const Button = styled.div<{ $toggled: boolean }>`
   position: fixed;
@@ -131,6 +133,7 @@ function TopLeft() {
   const handleToggle = () => {
     dispatch(setNavState(toggled ? "" : "topLeft"));
     setToggled(toggled ? false : true);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

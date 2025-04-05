@@ -1,14 +1,7 @@
-import styled from "styled-components";
 import HomePage from "./pages/HomePage";
 
-const Container = styled.div``;
-
 function App() {
-  return (
-    <Container>
-      <HomePage />
-    </Container>
-  );
+  return <HomePage />;
 }
 
 export default App;

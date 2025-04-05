@@ -6,7 +6,9 @@ import { setNavState } from "../../redux/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { experiences } from "../../data";
 
-const Container = styled.div``;
+const Container = styled.div`
+  pointer-events: auto;
+`;
 
 const Button = styled.div<{ $toggled: boolean }>`
   position: fixed;
@@ -126,7 +128,7 @@ function BottomRight() {
     dispatch(setNavState(toggled ? "" : "bottomRight"));
     setToggled(toggled ? false : true);
     document.body.style.overflowY = toggled ? "hidden" : "scroll";
-    toggled && window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

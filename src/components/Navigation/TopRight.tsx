@@ -8,7 +8,9 @@ import { setNavState } from "../../redux/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { frontendSkills, backendSkills, softwareDevSkills } from "../../data";
 
-const Container = styled.div``;
+const Container = styled.div`
+  pointer-events: auto;
+`;
 
 const Button = styled.div<{ $toggled: boolean }>`
   position: fixed;
@@ -123,6 +125,7 @@ function TopRight() {
   const handleToggle = () => {
     dispatch(setNavState(toggled ? "" : "topRight"));
     setToggled(toggled ? false : true);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

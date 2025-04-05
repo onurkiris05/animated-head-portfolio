@@ -1,3 +1,12 @@
+export const borderPatterns = [
+  "/assets/patterns/argyle.png",
+  "/assets/patterns/black-linen.png",
+  "/assets/patterns/cartographer.png",
+  "/assets/patterns/dark-leather.png",
+];
+
+export const borderColors = ["#f2542d", "#06d6a0", "#ef476f", "#118ab2", "#ffd166", "#8d99ae"];
+
 export const frontendSkills = [
   {
     name: "HTML",
@@ -138,6 +147,69 @@ export const experiences = [
       "Contributed to the development of a large-scale enterprise software solution.",
       "Implemented new features and optimized existing code for better performance.",
       "Collaborated with the QA team to identify and resolve bugs and performance issues.",
+    ],
+  },
+];
+
+export const projects = [
+  {
+    name: "Portfolio Website",
+    github: "https://github.com/OnurKiris/portfolio-website",
+    live: "https://onurkiris.github.io/portfolio-website/",
+    screenShots: [
+      "/assets/projects/project-1-dark.png",
+      "/assets/projects/project-2-dark.png",
+      "/assets/projects/project-3-dark.png",
+    ],
+  },
+  {
+    name: "Portfolio Website",
+    github: "https://github.com/OnurKiris/portfolio-website",
+    live: "https://onurkiris.github.io/portfolio-website/",
+    screenShots: [
+      "/assets/projects/project-1-dark.png",
+      "/assets/projects/project-2-dark.png",
+      "/assets/projects/project-3-dark.png",
+    ],
+  },
+  {
+    name: "Portfolio Website",
+    github: "https://github.com/OnurKiris/portfolio-website",
+    live: "https://onurkiris.github.io/portfolio-website/",
+    screenShots: [
+      "/assets/projects/project-1-dark.png",
+      "/assets/projects/project-2-dark.png",
+      "/assets/projects/project-3-dark.png",
+    ],
+  },
+  {
+    name: "Portfolio Website",
+    github: "https://github.com/OnurKiris/portfolio-website",
+    live: "https://onurkiris.github.io/portfolio-website/",
+    screenShots: [
+      "/assets/projects/project-1-dark.png",
+      "/assets/projects/project-2-dark.png",
+      "/assets/projects/project-3-dark.png",
+    ],
+  },
+  {
+    name: "Portfolio Website",
+    github: "https://github.com/OnurKiris/portfolio-website",
+    live: "https://onurkiris.github.io/portfolio-website/",
+    screenShots: [
+      "/assets/projects/project-1-dark.png",
+      "/assets/projects/project-2-dark.png",
+      "/assets/projects/project-3-dark.png",
+    ],
+  },
+  {
+    name: "Portfolio Website",
+    github: "https://github.com/OnurKiris/portfolio-website",
+    live: "https://onurkiris.github.io/portfolio-website/",
+    screenShots: [
+      "/assets/projects/project-1-dark.png",
+      "/assets/projects/project-2-dark.png",
+      "/assets/projects/project-3-dark.png",
     ],
   },
 ];
