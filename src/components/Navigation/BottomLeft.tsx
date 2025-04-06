@@ -156,8 +156,6 @@ function BottomLeft() {
   const handleToggle = () => {
     dispatch(setNavState(toggled ? "" : "bottomLeft"));
     setToggled(toggled ? false : true);
-    document.body.style.overflowY = toggled ? "hidden" : "scroll";
-    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

@@ -161,8 +161,8 @@ function TopRight() {
             <Terminal />
             <Name>Backend Development</Name>
           </Header>
-          {backendSkills.map((skill) => (
-            <InfoWrapper>
+          {backendSkills.map((skill, i) => (
+            <InfoWrapper key={i}>
               <SkillWrapper>
                 <WorkspacePremium />
                 <Info>{skill.name}</Info>
@@ -178,8 +178,8 @@ function TopRight() {
             <Api />
             <Name>Software Development</Name>
           </Header>
-          {softwareDevSkills.map((skill) => (
-            <InfoWrapper>
+          {softwareDevSkills.map((skill, i) => (
+            <InfoWrapper key={i}>
               <SkillWrapper>
                 <WorkspacePremium />
                 <Info>{skill.name}</Info>

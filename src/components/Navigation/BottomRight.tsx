@@ -5,6 +5,10 @@ import { lg, md, sm } from "../../utils/responsive";
 import { setNavState } from "../../redux/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { experiences } from "../../data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const Container = styled.div`
   pointer-events: auto;
@@ -56,6 +60,8 @@ const Title = styled.h1`
 `;
 
 const Content = styled.div<{ $toggled: boolean }>`
+  width: 40rem;
+  height: 35rem;
   position: absolute;
   bottom: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
   right: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
@@ -72,9 +78,20 @@ const Content = styled.div<{ $toggled: boolean }>`
   }))}
 
   ${sm(({ $toggled }) => ({
-    bottom: $toggled ? "35%" : "-50rem",
+    bottom: $toggled ? "45%" : "-50rem",
     paddingBottom: $toggled ? "5rem" : "0",
   }))}
+`;
+
+const Slider = styled(Swiper)`
+  width: 100%;
+  height: 100%;
+`;
+
+const SliderSlide = styled(SwiperSlide)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Card = styled.div<{ $toggled: boolean }>`
@@ -82,10 +99,9 @@ const Card = styled.div<{ $toggled: boolean }>`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 40rem;
+  width: 35rem;
   min-width: 20rem;
   padding: 1rem;
-  margin-bottom: 1rem;
   border: 1px solid gray;
   border-radius: 1rem;
   backdrop-filter: blur(50px);
@@ -127,8 +143,6 @@ function BottomRight() {
   const handleToggle = () => {
     dispatch(setNavState(toggled ? "" : "bottomRight"));
     setToggled(toggled ? false : true);
-    document.body.style.overflowY = toggled ? "hidden" : "scroll";
-    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -142,22 +156,41 @@ function BottomRight() {
         {toggled && <South style={{ color: "#fff" }} />}
       </Button>
       <Content $toggled={toggled}>
-        {experiences.map((experience) => (
-          <Card $toggled={toggled}>
-            <TitleWrapper>
-              <Work />
-              <InfoBold>{experience.role}</InfoBold>
-              <Info>{`- ${experience.company} (${experience.date})`}</Info>
-            </TitleWrapper>
-            <List>
-              {experience.duties.map((duty) => (
-                <ListItem>
-                  <ArrowRight /> {duty}
-                </ListItem>
-              ))}
-            </List>
-          </Card>
-        ))}
+        <Slider
+          direction="vertical"
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+            },
+            576: {
+              slidesPerView: 3,
+            },
+          }}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {experiences.map((experience, i) => (
+            <SliderSlide key={i}>
+              <Card $toggled={toggled}>
+                <TitleWrapper>
+                  <Work />
+                  <InfoBold>{experience.role}</InfoBold>
+                  <Info>{`- ${experience.company} (${experience.date})`}</Info>
+                </TitleWrapper>
+                <List>
+                  {experience.duties.map((duty, i) => (
+                    <ListItem key={i}>
+                      <ArrowRight /> {duty}
+                    </ListItem>
+                  ))}
+                </List>
+              </Card>
+            </SliderSlide>
+          ))}
+        </Slider>
       </Content>
     </Container>
   );
