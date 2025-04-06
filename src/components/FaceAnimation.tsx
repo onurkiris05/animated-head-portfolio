@@ -1,4 +1,6 @@
 import styled, { keyframes } from "styled-components";
+import { useSelector } from "react-redux";
+import { Sector } from "../utils/radialSector";
 
 const Container = styled.div`
   width: 40rem;
@@ -25,6 +27,10 @@ const Face = styled.div`
 `;
 
 function FaceAnimation() {
+  const sector: Sector = useSelector((state: any) => state.sector.state);
+
+  console.log("sector", sector);
+
   return (
     <Container>
       <Face />
