@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
-import { Sector } from "../utils/radialSector";
+import { useImageAnimator } from "../hooks/useImageAnimator";
 
 const Container = styled.div`
   width: 40rem;
@@ -19,21 +19,21 @@ const hoverAnim = keyframes`
   }
 `;
 
-const Face = styled.div`
+const Face = styled.div<{ image: string }>`
   width: 100%;
   height: 100%;
-  background: center/cover no-repeat var(--tl-1);
+  background: center/contain no-repeat var(${(props) => props.image});
   animation: ${hoverAnim} 3s ease-in-out infinite;
+  transition: 0.1s;
 `;
 
 function FaceAnimation() {
-  const sector: Sector = useSelector((state: any) => state.sector.state);
-
-  console.log("sector", sector);
+  const currentSector = useSelector((state: any) => state.sector.state);
+  const currentImage = useImageAnimator(currentSector, 50);
 
   return (
     <Container>
-      <Face />
+      <Face image={currentImage} />
     </Container>
   );
 }

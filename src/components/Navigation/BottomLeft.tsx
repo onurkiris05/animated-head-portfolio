@@ -52,6 +52,7 @@ const Button = styled.div<{ $toggled: boolean }>`
 const Title = styled.h1`
   margin-top: 2rem;
   font-size: 2rem;
+  font-weight: 600;
   color: #fff;
 
   ${md({

@@ -50,6 +50,7 @@ const Title = styled.h1`
   margin-bottom: 2rem;
   letter-spacing: 2px;
   font-size: 2rem;
+  font-weight: 600;
   color: #fff;
 
   ${md({
