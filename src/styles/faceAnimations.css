@@ -1,45 +1,45 @@
 :root {
-  --center: url("/public/assets/face-images/--center.png");
+  --center: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973137/bgprnv6kl56qihh3b5pl.png");
 
-  --t-1: url("/public/assets/face-images/--t-1.png");
-  --t-2: url("/public/assets/face-images/--t-2.png");
-  --t-3: url("/public/assets/face-images/--t-3.png");
-  --t-4: url("/public/assets/face-images/--t-4.png");
+  --t-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973254/dbosafttmglhbwrqyclx.png");
+  --t-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973268/h3o89zuymmza7ual3rse.png");
+  --t-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973276/lwvcvqm1rwrh9hob38kd.png");
+  --t-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973287/btvcveicthoy7szw5gpv.png");
 
-  --tr-1: url("/public/assets/face-images/--tr-1.png");
-  --tr-2: url("/public/assets/face-images/--tr-2.png");
-  --tr-3: url("/public/assets/face-images/--tr-3.png");
-  --tr-4: url("/public/assets/face-images/--tr-4.png");
+  --tr-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973316/vdvn71bpa7npdyr0e5ft.png");
+  --tr-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973329/by2jgwglwz1do9uubdir.png");
+  --tr-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973340/jkq1fjkfa6ce4wyynqep.png");
+  --tr-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973347/u2zoxfek7bb640td4ogg.png");
 
-  --r-1: url("/public/assets/face-images/--r-1.png");
-  --r-2: url("/public/assets/face-images/--r-2.png");
-  --r-3: url("/public/assets/face-images/--r-3.png");
-  --r-4: url("/public/assets/face-images/--r-4.png");
+  --r-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973367/sunikkxqhrivpicgjoza.png");
+  --r-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973375/j2kysji5fu3ofliumb8l.png");
+  --r-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973384/d2ymv2zpdps8pjwfxnqf.png");
+  --r-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973391/uze93ho2lrsvphi4ne9u.png");
 
-  --br-1: url("/public/assets/face-images/--br-1.png");
-  --br-2: url("/public/assets/face-images/--br-2.png");
-  --br-3: url("/public/assets/face-images/--br-3.png");
-  --br-4: url("/public/assets/face-images/--br-4.png");
+  --br-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973413/jgxaeyd7ucb5nfiafjlf.png");
+  --br-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973420/ijpr1ibzseb5ey9t9iet.png");
+  --br-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973428/eefxebtqxs19pa7efhth.png");
+  --br-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973437/kyqcjhecevcetloo07lq.png");
 
-  --b-1: url("/public/assets/face-images/--b-1.png");
-  --b-2: url("/public/assets/face-images/--b-2.png");
-  --b-3: url("/public/assets/face-images/--b-3.png");
-  --b-4: url("/public/assets/face-images/--b-4.png");
+  --b-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973450/l2jwifzkpi8khqfuuwr4.png");
+  --b-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973457/iifjy0yhpvpe4ljw0mnm.png");
+  --b-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973465/gmlwqistqbvxtl0uhv7h.png");
+  --b-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973472/fryson8r8qwplp1bgtxe.png");
 
-  --bl-1: url("/public/assets/face-images/--bl-1.png");
-  --bl-2: url("/public/assets/face-images/--bl-2.png");
-  --bl-3: url("/public/assets/face-images/--bl-3.png");
-  --bl-4: url("/public/assets/face-images/--bl-4.png");
+  --bl-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973496/pot2pjs1pds7s0n8nbr5.png");
+  --bl-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973503/iquhokg8l6g8z3g3zalc.png");
+  --bl-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973511/vmadt9hylupkqqthlyur.png");
+  --bl-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973518/s1eo1yzdiore3vk43e5r.png");
 
-  --l-1: url("/public/assets/face-images/--l-1.png");
-  --l-2: url("/public/assets/face-images/--l-2.png");
-  --l-3: url("/public/assets/face-images/--l-3.png");
-  --l-4: url("/public/assets/face-images/--l-4.png");
+  --l-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973535/jvsqfhh7gdajfmsmfloy.png");
+  --l-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973543/lyqx4ltzv6igbxa0jjc8.png");
+  --l-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973552/jfqbqvysgyqtolvfktlf.png");
+  --l-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973560/drumyozre0qqipplgxum.png");
 
-  --tl-1: url("/public/assets/face-images/--tl-1.png");
-  --tl-2: url("/public/assets/face-images/--tl-2.png");
-  --tl-3: url("/public/assets/face-images/--tl-3.png");
-  --tl-4: url("/public/assets/face-images/--tl-4.png");
+  --tl-1: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973665/guadfz2x6la0uyt3c4s2.png");
+  --tl-2: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973671/xl7ztnu4roqgrqljy9y5.png");
+  --tl-3: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973679/jz52wxlofibacbhl4q6x.png");
+  --tl-4: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973685/e2lwceylngbqi83n8x1j.png");
 }
 
 /* Preload images to avoid flickering on first animations */
@@ -49,21 +49,37 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url("/public/assets/face-images/--center.png")
-    url("/public/assets/face-images/--t-1.png") url("/public/assets/face-images/--t-2.png")
-    url("/public/assets/face-images/--t-3.png") url("/public/assets/face-images/--t-4.png")
-    url("/public/assets/face-images/--tr-1.png") url("/public/assets/face-images/--tr-2.png")
-    url("/public/assets/face-images/--tr-3.png") url("/public/assets/face-images/--tr-4.png")
-    url("/public/assets/face-images/--r-1.png") url("/public/assets/face-images/--r-2.png")
-    url("/public/assets/face-images/--r-3.png") url("/public/assets/face-images/--r-4.png")
-    url("/public/assets/face-images/--br-1.png") url("/public/assets/face-images/--br-2.png")
-    url("/public/assets/face-images/--br-3.png") url("/public/assets/face-images/--br-4.png")
-    url("/public/assets/face-images/--b-1.png") url("/public/assets/face-images/--b-2.png")
-    url("/public/assets/face-images/--b-3.png") url("/public/assets/face-images/--b-4.png")
-    url("/public/assets/face-images/--bl-1.png") url("/public/assets/face-images/--bl-2.png")
-    url("/public/assets/face-images/--bl-3.png") url("/public/assets/face-images/--bl-4.png")
-    url("/public/assets/face-images/--l-1.png") url("/public/assets/face-images/--l-2.png")
-    url("/public/assets/face-images/--l-3.png") url("/public/assets/face-images/--l-4.png")
-    url("/public/assets/face-images/--tl-1.png") url("/public/assets/face-images/--tl-2.png")
-    url("/public/assets/face-images/--tl-3.png") url("/public/assets/face-images/--tl-4.png");
+  content: url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973137/bgprnv6kl56qihh3b5pl.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973254/dbosafttmglhbwrqyclx.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973268/h3o89zuymmza7ual3rse.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973276/lwvcvqm1rwrh9hob38kd.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973287/btvcveicthoy7szw5gpv.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973316/vdvn71bpa7npdyr0e5ft.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973329/by2jgwglwz1do9uubdir.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973340/jkq1fjkfa6ce4wyynqep.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973347/u2zoxfek7bb640td4ogg.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973367/sunikkxqhrivpicgjoza.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973375/j2kysji5fu3ofliumb8l.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973384/d2ymv2zpdps8pjwfxnqf.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973391/uze93ho2lrsvphi4ne9u.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973413/jgxaeyd7ucb5nfiafjlf.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973420/ijpr1ibzseb5ey9t9iet.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973428/eefxebtqxs19pa7efhth.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973437/kyqcjhecevcetloo07lq.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973450/l2jwifzkpi8khqfuuwr4.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973457/iifjy0yhpvpe4ljw0mnm.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973465/gmlwqistqbvxtl0uhv7h.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973472/fryson8r8qwplp1bgtxe.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973496/pot2pjs1pds7s0n8nbr5.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973503/iquhokg8l6g8z3g3zalc.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973511/vmadt9hylupkqqthlyur.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973518/s1eo1yzdiore3vk43e5r.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973535/jvsqfhh7gdajfmsmfloy.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973543/lyqx4ltzv6igbxa0jjc8.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973552/jfqbqvysgyqtolvfktlf.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973560/drumyozre0qqipplgxum.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973665/guadfz2x6la0uyt3c4s2.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973671/xl7ztnu4roqgrqljy9y5.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973679/jz52wxlofibacbhl4q6x.png")
+    url("https://res.cloudinary.com/djzahz5ym/image/upload/v1744973685/e2lwceylngbqi83n8x1j.png");
 }

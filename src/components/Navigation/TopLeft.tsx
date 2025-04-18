@@ -126,7 +126,35 @@ const StyledLink = styled.a`
   }
 `;
 
-function TopLeft() {
+interface TopLeftProps {
+  about: About;
+}
+
+interface About {
+  education: string[];
+  languages: string[];
+  hobbies: string;
+  links: ExternalLink[];
+  contact: Contact;
+}
+
+interface ExternalLink {
+  name: string;
+  url: string;
+  urlName: string;
+}
+
+interface Contact {
+  linkedIn: ContactLink;
+  email: ContactLink;
+}
+
+interface ContactLink {
+  url: string;
+  urlName: string;
+}
+
+function TopLeft({ about }: TopLeftProps) {
   const [toggled, setToggled] = useState(false);
   const navState = useSelector((state: any) => state.navigation.toggled);
   const dispatch = useDispatch();
@@ -153,66 +181,37 @@ function TopLeft() {
             <AutoStories />
             <Name>Education</Name>
           </Header>
-          <Info>AS in Computer Programming - Anadolu University</Info>
-          <Info>BS in Business Administration - Anadolu University</Info>
+          {about.education.length && about.education.map((info, i) => <Info key={i}>{info}</Info>)}
         </Card>
         <Card>
           <Header>
             <RecordVoiceOver />
             <Name>Languages</Name>
           </Header>
-          <Info>English - B2</Info>
-          <Info>German - B1 (TELC)</Info>
-          <Info>Turkish - Native </Info>
+          {about.languages.length && about.languages.map((info, i) => <Info key={i}>{info}</Info>)}
         </Card>
         <Card>
           <Header>
             <SportsGymnastics />
             <Name>Hobbies</Name>
           </Header>
-          <Info>
-            Camping, Hiking, Cycling, Swimming, Fantasy & Science Fiction (LOTR, Star Wars), Anime
-            (Berserker), Games (XCom, Heroes)
-          </Info>
+          <Info>{about.hobbies}</Info>
         </Card>
         <Card>
           <Header>
             <Hub />
             <Name>Links</Name>
           </Header>
-          <LinkWrapper>
-            <Info>Github</Info>
-            <Link />
-            <StyledLink
-              href="https://github.com/onurkiris05"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              github.com/onurkiris05
-            </StyledLink>
-          </LinkWrapper>
-          <LinkWrapper>
-            <Info>Articles</Info>
-            <Link />
-            <StyledLink
-              href="https://medium.com/@onurkiris05"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              medium.com/@onurkiris05
-            </StyledLink>
-          </LinkWrapper>
-          <LinkWrapper>
-            <Info>Game Portfolio</Info>
-            <Link />
-            <StyledLink
-              href="https://www.behance.net/onurkiris"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              behance.net/onurkiris
-            </StyledLink>
-          </LinkWrapper>
+          {about.links.length &&
+            about.links.map((link, i) => (
+              <LinkWrapper key={i}>
+                <Info>{link.name}</Info>
+                <Link />
+                <StyledLink href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.urlName}
+                </StyledLink>
+              </LinkWrapper>
+            ))}
         </Card>
         <Card>
           <Header>
@@ -222,18 +221,14 @@ function TopLeft() {
           <LinkWrapper>
             <Info>LinkedIn</Info>
             <LinkedIn />
-            <StyledLink
-              href="https://www.linkedin.com/in/onur-kiris/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              linkedin.com/in/onur-kiris
+            <StyledLink href={about.contact.linkedIn.url} target="_blank" rel="noopener noreferrer">
+              {about.contact.linkedIn.urlName}
             </StyledLink>
           </LinkWrapper>
           <LinkWrapper>
             <Info>Email</Info>
             <Email />
-            <StyledLink href="mailto:onurkiris05@gmail.com">onurkiris05@gmail.com</StyledLink>
+            <StyledLink href={about.contact.email.url}>{about.contact.email.urlName}</StyledLink>
           </LinkWrapper>
         </Card>
       </Content>

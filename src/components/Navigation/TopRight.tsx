@@ -6,7 +6,6 @@ import Rating from "@mui/material/Rating";
 import { lg, md } from "../../utils/responsive";
 import { setNavState } from "../../redux/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { frontendSkills, backendSkills, softwareDevSkills } from "../../data";
 
 const Container = styled.div`
   pointer-events: auto;
@@ -118,7 +117,22 @@ const SkillWrapper = styled.div`
   align-items: center;
 `;
 
-function TopRight() {
+interface TopRightProps {
+  skills: Skills;
+}
+
+interface Skills {
+  frontend: Skill[];
+  backend: Skill[];
+  software: Skill[];
+}
+
+interface Skill {
+  name: string;
+  rating: number;
+}
+
+function TopRight({ skills }: TopRightProps) {
   const [toggled, setToggled] = useState(false);
   const navState = useSelector((state: any) => state.navigation.toggled);
   const dispatch = useDispatch();
@@ -145,51 +159,54 @@ function TopRight() {
             <Panorama />
             <Name>Frontend Development</Name>
           </Header>
-          {frontendSkills.map((skill, i) => (
-            <InfoWrapper key={i}>
-              <SkillWrapper>
-                <WorkspacePremium />
-                <Info>{skill.name}</Info>
-              </SkillWrapper>
-              <Box sx={{ width: 120, display: "flex", alignItems: "center" }}>
-                <Rating value={skill.rating} readOnly precision={0.5} />
-              </Box>
-            </InfoWrapper>
-          ))}
+          {skills.frontend.length &&
+            skills.frontend.map((skill, i) => (
+              <InfoWrapper key={i}>
+                <SkillWrapper>
+                  <WorkspacePremium />
+                  <Info>{skill.name}</Info>
+                </SkillWrapper>
+                <Box sx={{ width: 120, display: "flex", alignItems: "center" }}>
+                  <Rating value={skill.rating} readOnly precision={0.5} />
+                </Box>
+              </InfoWrapper>
+            ))}
         </Card>
         <Card>
           <Header>
             <Terminal />
             <Name>Backend Development</Name>
           </Header>
-          {backendSkills.map((skill, i) => (
-            <InfoWrapper key={i}>
-              <SkillWrapper>
-                <WorkspacePremium />
-                <Info>{skill.name}</Info>
-              </SkillWrapper>
-              <Box sx={{ width: 120, display: "flex", alignItems: "center" }}>
-                <Rating value={skill.rating} readOnly precision={0.5} />
-              </Box>
-            </InfoWrapper>
-          ))}
+          {skills.backend.length &&
+            skills.backend.map((skill, i) => (
+              <InfoWrapper key={i}>
+                <SkillWrapper>
+                  <WorkspacePremium />
+                  <Info>{skill.name}</Info>
+                </SkillWrapper>
+                <Box sx={{ width: 120, display: "flex", alignItems: "center" }}>
+                  <Rating value={skill.rating} readOnly precision={0.5} />
+                </Box>
+              </InfoWrapper>
+            ))}
         </Card>
         <Card>
           <Header>
             <Api />
             <Name>Software Development</Name>
           </Header>
-          {softwareDevSkills.map((skill, i) => (
-            <InfoWrapper key={i}>
-              <SkillWrapper>
-                <WorkspacePremium />
-                <Info>{skill.name}</Info>
-              </SkillWrapper>
-              <Box sx={{ width: 120, display: "flex", alignItems: "center" }}>
-                <Rating value={skill.rating} readOnly precision={0.5} />
-              </Box>
-            </InfoWrapper>
-          ))}
+          {skills.software.length &&
+            skills.software.map((skill, i) => (
+              <InfoWrapper key={i}>
+                <SkillWrapper>
+                  <WorkspacePremium />
+                  <Info>{skill.name}</Info>
+                </SkillWrapper>
+                <Box sx={{ width: 120, display: "flex", alignItems: "center" }}>
+                  <Rating value={skill.rating} readOnly precision={0.5} />
+                </Box>
+              </InfoWrapper>
+            ))}
         </Card>
       </Content>
     </Container>

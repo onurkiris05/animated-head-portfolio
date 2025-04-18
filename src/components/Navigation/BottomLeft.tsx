@@ -9,7 +9,8 @@ import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards, Pagination } from "swiper/modules";
-import { projects, borderPatterns, borderColors } from "../../data";
+import { borderPatterns, borderColors } from "../../data";
+import { getMediaType } from "../../utils/mediaType";
 
 const Container = styled.div`
   pointer-events: auto;
@@ -63,15 +64,15 @@ const Title = styled.h1`
 
 const Content = styled.div<{ $toggled: boolean }>`
   position: absolute;
-  bottom: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
-  left: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
+  bottom: ${({ $toggled }) => ($toggled ? "8rem" : "-100rem")};
+  left: ${({ $toggled }) => ($toggled ? "8rem" : "-100rem")};
   transition: 0.5s ease-in-out;
-  width: 40rem;
-  height: 40rem;
+  width: 80vh;
+  height: 80vh;
 
   ${lg(({ $toggled }) => ({
-    bottom: $toggled ? "50%" : "-50rem",
-    left: $toggled ? "50%" : "-50rem",
+    bottom: $toggled ? "50%" : "-100rem",
+    left: $toggled ? "50%" : "-100rem",
     transform: $toggled ? "translate(-50%, 50%)" : "none",
   }))}
 
@@ -83,7 +84,7 @@ const Content = styled.div<{ $toggled: boolean }>`
   )}
 
   ${sm(({ $toggled }) => ({
-    bottom: $toggled ? "40%" : "-50rem",
+    bottom: $toggled ? "45%" : "-100rem",
     paddingBottom: $toggled ? "5rem" : "0",
   }))}
 `;
@@ -117,12 +118,6 @@ const SlideContent = styled.div`
   flex-direction: column;
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
 const Header = styled.div`
   width: 100%;
   height: 4rem;
@@ -149,7 +144,32 @@ const StyledLink = styled.a`
   }
 `;
 
-function BottomLeft() {
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+`;
+
+interface BottomLeftProps {
+  projects: Project[];
+}
+
+interface Project {
+  name: string;
+  github?: string;
+  live?: string;
+  media: string[];
+}
+
+function BottomLeft({ projects }: BottomLeftProps) {
   const [toggled, setToggled] = useState(false);
   const navState = useSelector((state: any) => state.navigation.toggled);
   const dispatch = useDispatch();
@@ -187,21 +207,32 @@ function BottomLeft() {
                       modules={[Pagination]}
                       loop={true}
                     >
-                      {project.screenShots.length &&
-                        project.screenShots.map((ss, i) => (
-                          <SliderSlide key={i}>
-                            <Image src={ss} />
-                          </SliderSlide>
-                        ))}
+                      {project.media.length &&
+                        project.media.map((url, i) => {
+                          const type = getMediaType(url);
+                          return (
+                            <SliderSlide key={i}>
+                              {type === "video" ? (
+                                <Video src={url} muted loop autoPlay />
+                              ) : (
+                                <Image src={url} alt={`Media ${i}`} />
+                              )}
+                            </SliderSlide>
+                          );
+                        })}
                     </Slider>
                     <Header>
-                      <StyledLink href={project.live} target="_blank" rel="noopener noreferrer">
-                        Demo
-                      </StyledLink>
+                      {project.live && (
+                        <StyledLink href={project.live} target="_blank" rel="noopener noreferrer">
+                          Live
+                        </StyledLink>
+                      )}
                       <SlideTitle>{project.name}</SlideTitle>
-                      <StyledLink href={project.github} target="_blank" rel="noopener noreferrer">
-                        Github
-                      </StyledLink>
+                      {project.github && (
+                        <StyledLink href={project.github} target="_blank" rel="noopener noreferrer">
+                          Github
+                        </StyledLink>
+                      )}
                     </Header>
                   </SlideContent>
                 </Frame>

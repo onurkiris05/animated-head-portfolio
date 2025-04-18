@@ -4,9 +4,8 @@ import { South, Work, ArrowRight } from "@mui/icons-material";
 import { lg, md, sm } from "../../utils/responsive";
 import { setNavState } from "../../redux/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { experiences } from "../../data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -62,7 +61,7 @@ const Title = styled.h1`
 
 const Content = styled.div<{ $toggled: boolean }>`
   width: 40rem;
-  height: 35rem;
+  height: 40rem;
   position: absolute;
   bottom: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
   right: ${({ $toggled }) => ($toggled ? "8rem" : "-50rem")};
@@ -91,7 +90,6 @@ const Slider = styled(Swiper)`
 
 const SliderSlide = styled(SwiperSlide)`
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
@@ -100,9 +98,9 @@ const Card = styled.div<{ $toggled: boolean }>`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 35rem;
+  width: 100%;
   min-width: 20rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid gray;
   border-radius: 1rem;
   backdrop-filter: blur(50px);
@@ -120,6 +118,7 @@ const Info = styled.p``;
 
 const InfoBold = styled.p`
   font-weight: 600;
+  padding: 0 0.25rem;
 `;
 
 const TitleWrapper = styled.div`
@@ -136,11 +135,23 @@ const ListItem = styled.li`
   align-items: flex-start;
 `;
 
-function BottomRight() {
+const Text = styled.p``;
+
+interface Experience {
+  role: string;
+  company: string;
+  date: string;
+  responsibilities: string[];
+}
+
+interface BottomRightProps {
+  experiences: Experience[];
+}
+
+function BottomRight({ experiences }: BottomRightProps) {
   const [toggled, setToggled] = useState(false);
   const navState = useSelector((state: any) => state.navigation.toggled);
   const dispatch = useDispatch();
-
   const handleToggle = () => {
     dispatch(setNavState(toggled ? "" : "bottomRight"));
     setToggled(toggled ? false : true);
@@ -159,38 +170,36 @@ function BottomRight() {
       <Content $toggled={toggled}>
         <Slider
           direction="vertical"
+          mousewheel={true}
           breakpoints={{
-            0: {
-              slidesPerView: 2,
-            },
-            576: {
-              slidesPerView: 3,
-            },
+            0: { slidesPerView: 2 },
+            576: { slidesPerView: 3 },
           }}
           spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          modules={[Pagination, Mousewheel]}
         >
-          {experiences.map((experience, i) => (
-            <SliderSlide key={i}>
-              <Card $toggled={toggled}>
-                <TitleWrapper>
-                  <Work />
-                  <InfoBold>{experience.role}</InfoBold>
-                  <Info>{`- ${experience.company} (${experience.date})`}</Info>
-                </TitleWrapper>
-                <List>
-                  {experience.duties.map((duty, i) => (
-                    <ListItem key={i}>
-                      <ArrowRight /> {duty}
-                    </ListItem>
-                  ))}
-                </List>
-              </Card>
-            </SliderSlide>
-          ))}
+          {experiences.length &&
+            experiences.map((experience, i) => (
+              <SliderSlide key={i}>
+                <Card $toggled={toggled}>
+                  <TitleWrapper>
+                    <Work />
+                    <InfoBold>{experience.role}</InfoBold>
+                    <Info>({experience.date})</Info>
+                  </TitleWrapper>
+                  <List>
+                    {experience.responsibilities.length &&
+                      experience.responsibilities.map((responsibility, i) => (
+                        <ListItem key={i}>
+                          <ArrowRight />
+                          <Text>{responsibility}</Text>
+                        </ListItem>
+                      ))}
+                  </List>
+                </Card>
+              </SliderSlide>
+            ))}
         </Slider>
       </Content>
     </Container>
