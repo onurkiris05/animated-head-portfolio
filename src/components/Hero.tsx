@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FaceAnimation from "./FaceAnimation";
+import AnimatedText from "./AnimatedText";
 
 const Container = styled.div`
   display: flex;
@@ -27,17 +28,15 @@ const Name = styled.h1`
   letter-spacing: 2px;
 `;
 
-const LowerTitle = styled.p`
-  font-size: 1.25rem;
-`;
-
 function Hero() {
   return (
     <Container>
       <Header>
         <UpperTitle>Hello I'm</UpperTitle>
         <Name>Onur Kiris</Name>
-        <LowerTitle>Fullstack Developer</LowerTitle>
+        <AnimatedText
+          texts={["Full Stack Developer", "Software Developer (C#/Unity)", "Revit Modeler"]}
+        />
       </Header>
       <FaceAnimation />
     </Container>

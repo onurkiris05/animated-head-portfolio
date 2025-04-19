@@ -114,9 +114,12 @@ const Card = styled.div<{ $toggled: boolean }>`
   )}
 `;
 
-const Info = styled.p``;
+const Info = styled.p`
+  padding-right: 0.25rem;
+`;
 
 const InfoBold = styled.p`
+  display: inline-block;
   font-weight: 600;
   padding: 0 0.25rem;
 `;
@@ -136,6 +139,11 @@ const ListItem = styled.li`
 `;
 
 const Text = styled.p``;
+
+const TextBold = styled.p`
+  display: inline-block;
+  font-weight: 600;
+`;
 
 interface Experience {
   role: string;
@@ -186,14 +194,23 @@ function BottomRight({ experiences }: BottomRightProps) {
                   <TitleWrapper>
                     <Work />
                     <InfoBold>{experience.role}</InfoBold>
-                    <Info>({experience.date})</Info>
+                    {experience.company && <Info> @ {experience.company}</Info>}
+                    <Info>- ({experience.date})</Info>
                   </TitleWrapper>
                   <List>
                     {experience.responsibilities.length &&
                       experience.responsibilities.map((responsibility, i) => (
                         <ListItem key={i}>
                           <ArrowRight />
-                          <Text>{responsibility}</Text>
+                          <Text>
+                            {responsibility.split(/(\*\*.*?\*\*)/g).map((part, index) => {
+                              if (part.startsWith("**") && part.endsWith("**")) {
+                                return <TextBold key={index}>{part.slice(2, -2)}</TextBold>;
+                              } else {
+                                return <span key={index}>{part}</span>;
+                              }
+                            })}
+                          </Text>
                         </ListItem>
                       ))}
                   </List>
