@@ -32,7 +32,7 @@ function Hero() {
   return (
     <Container>
       <Header>
-        <UpperTitle>Hello I'm</UpperTitle>
+        <UpperTitle>Hello, I'm</UpperTitle>
         <Name>Onur Kiris</Name>
         <AnimatedText
           texts={["Full Stack Developer", "Software Developer (C#/Unity)", "Revit Modeler"]}

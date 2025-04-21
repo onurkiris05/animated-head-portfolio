@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useImageAnimator } from "../hooks/useImageAnimator";
 
 const Container = styled.div`
-  width: 40rem;
-  height: 40rem;
+  width: clamp(20rem, 80vw, 40rem);
+  height: clamp(20rem, 80vw, 40rem);
 `;
 
 const hoverAnim = keyframes`

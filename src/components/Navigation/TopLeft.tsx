@@ -90,7 +90,7 @@ const Card = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 25rem;
+  width: min(95vw, 25rem);
   padding: 1rem;
   border: 1px solid gray;
   border-radius: 1rem;
